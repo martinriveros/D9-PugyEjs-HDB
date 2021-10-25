@@ -1,0 +1,16 @@
+include templates/header.pug
+body(id="html")
+  h2 ALTA DE PRODUCTOS
+  form(action="/productos" method="post" enctype="application/x-www-form-urlencoded")
+    label(for="nombreProd") Nombre
+    input(type="text" id="nombreProd" name="name")
+    br
+    label(for="thumbProd") Price
+    input(type="number" id="precioProd" name="price")
+    br
+    label(for="thumbProd") Foto URL
+    input(type="text" id="thumbProd" name="thumbnail")
+    br
+    button(type="button" class="btn btn-success" id="goProducts") VER PRODUCTOS
+    input(type="submit" class="btn btn-primary" value="ENVIAR")
+include templates/footer.pug
