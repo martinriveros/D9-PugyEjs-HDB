@@ -1,0 +1,36 @@
+  <body id="html">
+    <h2>VISTA DE PRODUCTOS</h2>
+    <div class="table-responsive">
+      <table class="table table-dark table-sm table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Price</th>
+            <th scope="col">Thumbnail</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#if noProductos}}
+            <tr>
+              <td class="align-right" colspan="3">
+                <h2> no se encuentran productos </h2>
+              </td>
+            </tr>
+          {{ else }}  
+               {{#each latestData}} 
+                <tr>
+                  <td>{{this.name}}</td>
+                  <td>$ {{this.price}}</td>
+                  <td>
+                    <img src="{{this.thumbnail}}" alt="missing" width="30" height="30" />
+                  </td>
+                </tr>
+                {{/each}}
+            {{/if}}
+        </tbody>
+      </table>
+      <button type="button" class="btn btn-success" id="goBack">
+        AGREGAR PRODUCTO
+      </button>
+    </div>
+  </body>

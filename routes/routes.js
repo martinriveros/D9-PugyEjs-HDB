@@ -7,19 +7,24 @@ function serverRouter(app){
   app.use("/", router);
 
   router.get('/', (req, res)=>{
-    res.render('ingresoProductos');
+    res.render('ingresoProductos', {title:"ingresar productos"});
   })
 
   router.get('/productos', async (req, res)=>{
     let latestData = await fileHandler.getAll();
-    if(latestData.length===0){latestData=[{alert: "no se encuentran productos"}]}
-    res.render('showProducts', {latestData});
-  })
+  
+    if(latestData.length===0){
+      let noProductos = true
+    } else {
+        let noProductos = false
+        res.render('showProducts', {latestData, title:"mostrar productos", noProductos});
+  }})
 
   router.post('/productos', async (req, res)=>{
 
       let latestData = await fileHandler.writeFile(req.body);
-      res.render('showProducts', {latestData});
+      let noProductos = false;
+      res.render('showProducts', {latestData, title:"mostrar productos", noProductos});
 
   })
 }
