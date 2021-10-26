@@ -1,22 +1,13 @@
-try {
-let botonGoBack = document.querySelector('#goBack')
-botonGoBack.addEventListener('click', goback)
-function goback(){
+function goBack(){
   window.location.replace('http://localhost:5000/')}
-} catch (error) {
-  console.log('esto es por utilizar solo un archivo para las dos vistas')
-}
-try {
- let botonGoProducts = document.querySelector('#goProducts')
-botonGoProducts.addEventListener('click', goProducts)
+
 function goProducts(){
   window.location.replace('http://localhost:5000/productos')}
-} catch (error) {
-   console.log('esto es por utilizar solo un archivo para las dos vistas')
+
+try{
+  let form = document.querySelector('#formulario')
+  let botonSumbit = document.querySelector('#botonSubmit')
+  botonSumbit.addEventListener('click', ()=>form.submit())
+}catch{
+  console.log('un invento...')
 }
-
-
-
-
-
-
