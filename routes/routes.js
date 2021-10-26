@@ -15,6 +15,7 @@ function serverRouter(app){
   
     if(latestData.length===0){
       let noProductos = true
+      res.render('showProducts', {latestData, title:"mostrar productos", noProductos});
     } else {
         let noProductos = false
         res.render('showProducts', {latestData, title:"mostrar productos", noProductos});
